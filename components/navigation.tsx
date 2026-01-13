@@ -5,17 +5,11 @@ import Link from 'next/link';
 import { useLanguage, translations } from '@/context/language-context';
 import { useState, useEffect } from 'react';
 
-interface NavigationProps {
-  isMenuOpen: boolean;
-  setIsMenuOpen: (value: boolean) => void;
-}
-
-export default function Navigation({
-  isMenuOpen,
-  setIsMenuOpen,
-}: NavigationProps) {
+export default function Navigation() {
   const { language, setLanguage } = useLanguage();
   const [headerHeight, setHeaderHeight] = useState(80);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     let lastScrollY = 0;

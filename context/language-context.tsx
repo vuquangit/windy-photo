@@ -36,6 +36,10 @@ export const translations = {
     privacyPolicy: "Privacy Policy",
     terms: "Terms of Service",
     allRightsReserved: "All rights reserved",
+
+    // Pricing Section
+    pricingTitle: "Pricing Services",
+    pricingSubtitle: "Choose the Perfect Package for Your Needs",
   },
   vi: {
     // Navigation
@@ -68,6 +72,10 @@ export const translations = {
     privacyPolicy: "Chính Sách Bảo Mật",
     terms: "Điều Khoản Dịch Vụ",
     allRightsReserved: "Bản quyền được bảo vệ",
+
+    // Pricing Section
+    pricingTitle: "Bảng Giá Dịch Vụ",
+    pricingSubtitle: "Chọn Gói Dịch Vụ Phù Hợp Với Nhu Cầu Của Bạn",
   },
 }
 

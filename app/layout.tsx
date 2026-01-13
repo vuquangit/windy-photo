@@ -4,6 +4,11 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
+import { LanguageProvider } from '@/context/language-context';
+import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
+import ContactPopup from '@/components/contact-popup';
+
 const _geist = Geist({ subsets: ['latin'] });
 const _geistMono = Geist_Mono({ subsets: ['latin'] });
 
@@ -39,7 +44,14 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth'>
       <body className={`font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          <main className='bg-background text-foreground'>
+            <Navigation />
+            {children}
+            <Footer />
+            <ContactPopup />
+          </main>
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

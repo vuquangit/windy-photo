@@ -2,8 +2,19 @@
 
 import { useLanguage } from "@/context/language-context"
 
+const heroContent = {
+  en: {
+    hi: 'Hi, I\'m Windy.',
+    description: 'A portrait & wedding photographer based in Ho Chi Minh City, welcoming travel worldwide.'
+  },
+  vi: {
+    hi: 'Xin chào, tôi là Windy.',
+    description: 'Tôi là nhiếp ảnh gia chuyên chụp ảnh chân dung và ảnh cưới, hiện đang sống tại Thành phố Hồ Chí Minh.'
+  },
+}
+
 export default function HeroIntro() {
-  const { t } = useLanguage()
+  const { language } = useLanguage()
 
   return (
     <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -26,9 +37,11 @@ export default function HeroIntro() {
           {/* Right: Text content */}
           <div className="flex flex-col justify-start pt-8 space-y-6">
             <div>
-              <h1 className="text-5xl sm:text-6xl font-serif font-light italic mb-6">Hi, I'm Vivian.</h1>
+              <h1 className="text-5xl sm:text-6xl font-serif font-light italic mb-6">
+                {heroContent[language].hi}
+              </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                A portrait & wedding photographer based in Florida, welcoming travel worldwide.
+                {heroContent[language].description}
               </p>
             </div>
           </div>
