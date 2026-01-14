@@ -448,11 +448,12 @@ export default function PricingSection() {
         {
           name: 'Photobooth Đám Cưới',
           descriptions: [
-            'In ấn tức thì, tuỳ chọn kích thước giấy in 10x15, 13x18 thậm chí ảnh kích thước khổ A4 (Lưu ý: với ảnh kích thước càng lớn thì thời gian in sẽ càng lâu)',
+            'In ấn tức thì, tuỳ chọn kích thước giấy in 10x15, 13x18, A4',
             'Hỗ trợ 1 nhân viên chụp ảnh và 1 máy in',
             'Video Boomerang',
             'Hình ảnh động GIF',
-            'Phụ kiện chụp ảnh như kính mắt, nơ, quạt, ...',
+            'Tải ảnh trực tiếp qua QR 📱',
+            'Phụ kiện chụp ảnh như: kính mắt, nơ, quạt, tag cầm tay,...',
             'Bản sao kỹ thuật số cho tất cả ảnh',
           ],
           cards: [
@@ -465,7 +466,6 @@ export default function PricingSection() {
                   items: [
                     'Thuê photobooth 1 giờ',
                     'In ảnh không giới hạn trong 1 giờ.',
-                    'Phông nền chuyên nghiệp',
                     'Tặng kèm 2 file thiết kế khung ảnh.',
                   ],
                 },
@@ -475,7 +475,7 @@ export default function PricingSection() {
                 },
                 {
                   label: 'Thêm 1 giờ làm việc phụ thu',
-                  items: ['1.000.000 VND'],
+                  items: ['1.500.000 VND'],
                 },
               ],
             },
@@ -488,15 +488,8 @@ export default function PricingSection() {
                   items: [
                     'Thuê photobooth 2 giờ',
                     'In ảnh không giới hạn trong 2 giờ.',
-                    'Phông nền chuyên nghiệp',
+                    'Backdrop cơ bản chụp ảnh: bao gồm khung và rèm vải',
                     'Tặng kèm 4 file thiết kế khung ảnh.',
-                  ],
-                },
-                {
-                  label: 'Tính Năng:',
-                  items: [
-                    'Đạo cụ tùy chỉnh có sẵn',
-                    'Chia sẻ trên mạng xã hội',
                   ],
                 },
                 {
@@ -514,17 +507,8 @@ export default function PricingSection() {
                   items: [
                     'Thuê photobooth 3 giờ',
                     'In ảnh không giới hạn trong 3 giờ.',
-                    'Nhiều tùy chọn phông nền cao cấp',
+                    'Backdrop cao cấp chụp ảnh: bao gồm khung và rèm vải',
                     'Tặng kèm 5 file thiết kế khung ảnh.',
-                  ],
-                },
-                {
-                  label: 'Tính Năng:',
-                  items: [
-                    'Đạo cụ tùy chỉnh cao cấp',
-                    'Sách guestbook',
-                    'Chia sẻ trên mạng xã hội',
-                    'Mẫu ảnh tùy chỉnh',
                   ],
                 },
                 {
@@ -542,17 +526,8 @@ export default function PricingSection() {
                   items: [
                     'Thuê photobooth 4 giờ',
                     'In ảnh không giới hạn trong 4 giờ.',
-                    'Nhiều tùy chọn phông nền cao cấp',
+                    'Backdrop cao cấp chụp ảnh: bao gồm khung và rèm vải',
                     'Tặng kèm 5 file thiết kế khung ảnh.',
-                  ],
-                },
-                {
-                  label: 'Tính Năng:',
-                  items: [
-                    'Đạo cụ tùy chỉnh cao cấp',
-                    'Sách guestbook',
-                    'Chia sẻ trên mạng xã hội',
-                    'Mẫu ảnh tùy chỉnh',
                   ],
                 },
                 {
@@ -570,7 +545,10 @@ export default function PricingSection() {
   const data = pricingData[language];
 
   return (
-    <section className='py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto'>
+    <section
+      id='pricing'
+      className='py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto'
+    >
       <div className='text-center mb-12'>
         <h2 className='text-4xl md:text-5xl font-bold text-blue-600 mb-4'>
           {data.title}

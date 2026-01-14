@@ -38,6 +38,7 @@ export const translations = {
     allRightsReserved: "All rights reserved",
 
     // Pricing Section
+    pricing: "PRICING",
     pricingTitle: "Pricing Services",
     pricingSubtitle: "Choose the Perfect Package for Your Needs",
   },
@@ -74,6 +75,7 @@ export const translations = {
     allRightsReserved: "Bản quyền được bảo vệ",
 
     // Pricing Section
+    pricing: "BẢNG GIÁ",
     pricingTitle: "Bảng Giá Dịch Vụ",
     pricingSubtitle: "Chọn Gói Dịch Vụ Phù Hợp Với Nhu Cầu Của Bạn",
   },

@@ -52,16 +52,10 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className='hidden md:flex items-center gap-12'>
             <Link
-              href='#about'
+              href='/#about'
               className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
             >
               {translations[language].about}
-            </Link>
-            <Link
-              href='#services'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].services}
             </Link>
             <Link
               href='/outdoor'
@@ -80,6 +74,12 @@ export default function Navigation() {
               className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
             >
               {translations[language].photobooth}
+            </Link>
+            <Link
+              href='/#pricing'
+              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+            >
+              {translations[language].pricing}
             </Link>
 
             <div className='flex items-center gap-3 border-l border-border pl-8'>
