@@ -163,6 +163,10 @@
   @apply btn bg-destructive text-destructive-foreground;
 }
 
+@utility btn-green {
+  @apply btn bg-green-700 text-white;
+}
+
 @keyframes phone-shake {
   0% {
     transform: rotate(0deg) translate(0px, 0px);

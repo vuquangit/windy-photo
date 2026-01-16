@@ -28,9 +28,9 @@ export default function WhyFilm() {
       <div className='max-w-7xl mx-auto'>
         <div className='grid md:grid-cols-2 gap-12 items-start'>
           {/* Left: Image */}
-          <div className='relative aspect-[3/4] rounded-lg overflow-hidden bg-muted'>
+          <div className='relative aspect-3/4 rounded-lg overflow-hidden bg-muted'>
             <img
-              src='/film-photography-black-and-white-artistic.jpg'
+              src='/images/why-film.jpg'
               alt='Film photography art'
               className='w-full h-full object-cover'
             />

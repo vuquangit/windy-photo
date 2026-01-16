@@ -6,6 +6,17 @@ import Link from 'next/link';
 import { useLanguage, translations } from '@/context/language-context';
 import { useState, useEffect } from 'react';
 
+const NavigationItem = ({ href, label }: { href: string; label: string }) => {
+  return (
+    <Link
+      href={href}
+      className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+    >
+      {label}
+    </Link>
+  );
+};
+
 export default function Navigation() {
   const { language, setLanguage } = useLanguage();
   const [headerHeight, setHeaderHeight] = useState(80);
@@ -35,7 +46,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className='fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300'
+      className='fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 shadow'
       style={{ height: `${headerHeight}px` }}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full'>
@@ -52,43 +63,32 @@ export default function Navigation() {
                 height={40}
                 className='relative z-10'
               />
-              {/* <span className='font-normal'>Q&A</span> */}
-              {/* <span className='italic font-light ml-1'>Photo</span> */}
+              <span className='font-normal'>Q&A</span>
+              <span className='italic font-light ml-1'>Photo</span>
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className='hidden md:flex items-center gap-12'>
-            <Link
+            <NavigationItem
               href='/#about'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].about}
-            </Link>
-            <Link
-              href='/outdoor'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].outdoorPhotography}
-            </Link>
-            <Link
-              href='/wedding'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].wedding}
-            </Link>
-            <Link
-              href='/photobooth'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].photobooth}
-            </Link>
-            <Link
+              label={translations[language].about}
+            />
+
+            <NavigationItem
+              href='/#portfolio'
+              label={translations[language].portfolio}
+            />
+
+            <NavigationItem
+              href='/#services'
+              label={translations[language].services}
+            />
+
+            <NavigationItem
               href='/#pricing'
-              className='text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              {translations[language].pricing}
-            </Link>
+              label={translations[language].pricing}
+            />
 
             <div className='flex items-center gap-3 border-l border-border pl-8'>
               <select

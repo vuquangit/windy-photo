@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useLanguage } from '@/context/language-context';
+import Image from 'next/image';
+import { useLanguage, translations } from '@/context/language-context';
 
 const PricingCard = ({
   title,
@@ -15,9 +16,9 @@ const PricingCard = ({
   return (
     <div className='border-2 border-gray-200 rounded-lg p-8 bg-white hover:shadow-lg transition-shadow'>
       <h3 className='text-2xl font-bold text-blue-600 mb-6'>{title}</h3>
-      <div className='mb-6'>
+      {/* <div className='mb-6'>
         <p className='text-3xl font-bold text-green-600'>{price}</p>
-      </div>
+      </div> */}
 
       <div className='space-y-4'>
         {features.map((feature, idx) => (
@@ -558,7 +559,7 @@ export default function PricingSection() {
       </div>
 
       {/* Tabs */}
-      <div className='flex justify-center mb-8'>
+      <div className='flex justify-center bg-background pt-4'>
         <div className='inline-flex rounded-lg border border-gray-200 bg-white p-1'>
           {data.tabs.map((tab, idx) => (
             <button
@@ -577,17 +578,20 @@ export default function PricingSection() {
       </div>
 
       {/* Active Tab's Pricing Cards */}
-      <div className='bg-white rounded-lg p-4'>
-        <ul className='mb-10 px-4'>
-          {data.tabs[activeTab].descriptions?.map((item) => (
-            <li className='mb-2'>
-              <p className='flex items-center content-start relative'>
-                <span className='w-2 h-2 bg-gray-600 rounded-full absolute -left-2 top-1/2 -translate-y-1/2'></span>
-                <span className='text-gray-700 ml-3'>{item}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
+      <div className='bg-background rounded-lg p-4'>
+        {data.tabs[activeTab].descriptions &&
+          data.tabs[activeTab].descriptions?.length > 0 && (
+            <ul className='mb-10 px-4'>
+              {data.tabs[activeTab].descriptions?.map((item) => (
+                <li className='mb-2'>
+                  <p className='flex items-center content-start relative'>
+                    <span className='w-2 h-2 bg-gray-600 rounded-full absolute -left-2 top-1/2 -translate-y-1/2'></span>
+                    <span className='text-gray-700 ml-3'>{item}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
           {data.tabs[activeTab].cards.map((card, idx) => (
@@ -598,6 +602,23 @@ export default function PricingSection() {
               features={card.features}
             />
           ))}
+        </div>
+
+        <div className='mt-6 flex justify-center'>
+          <button
+            className='btn-green h-12 px-12 flex items-center gap-2'
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('contact-shake'));
+            }}
+          >
+            <Image
+              src='/icons/message-white.svg'
+              alt='Message'
+              width={24}
+              height={24}
+            />
+            {translations[language].aboutSection.cta}
+          </button>
         </div>
       </div>
     </section>

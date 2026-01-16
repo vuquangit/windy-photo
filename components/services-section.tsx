@@ -47,7 +47,7 @@ export default function ServicesSection() {
               <div className='aspect-square overflow-hidden rounded-lg bg-muted'>
                 <img
                   src={service.image || '/placeholder.svg'}
-                  alt={t(service.titleKey as keyof ReturnType<typeof t>)}
+                  alt={t(service.titleKey as any)}
                   className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
                 />
               </div>
@@ -55,13 +55,13 @@ export default function ServicesSection() {
               {/* Content */}
               <div className='space-y-3'>
                 <h3 className='text-2xl font-serif font-light tracking-tight'>
-                  {t(service.titleKey as keyof ReturnType<typeof t>)}
+                  {t(service.titleKey as any)}
                 </h3>
                 {/* Hover Underline */}
                 <div className='h-px bg-foreground w-0 group-hover:w-12 transition-all duration-300' />
 
                 <p className='text-muted-foreground leading-relaxed'>
-                  {t(service.descKey as keyof ReturnType<typeof t>)}
+                  {t(service.descKey as any)}
                 </p>
               </div>
             </div>
