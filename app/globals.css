@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -75,8 +75,8 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,4 +122,98 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center
+         rounded-lg
+         px-4 py-2
+         text-sm font-medium
+         transition
+         focus:outline-none
+         focus:ring-2 focus:ring-offset-2
+         disabled:opacity-50 disabled:pointer-events-none;
+}
+
+@utility btn-default {
+  @apply btn bg-white text-black border border-border hover:bg-black/5;
+}
+
+@utility btn-outline {
+  @apply btn border border-foreground text-foreground hover:bg-foreground hover:text-background;
+}
+
+@utility btn-primary {
+  @apply btn bg-primary text-primary-foreground;
+}
+
+@utility btn-secondary {
+  @apply btn bg-secondary text-secondary-foreground;
+}
+
+@utility btn-muted {
+  @apply btn bg-muted text-muted-foreground;
+}
+
+@utility btn-accent {
+  @apply btn bg-accent text-accent-foreground;
+}
+
+@utility btn-destructive {
+  @apply btn bg-destructive text-destructive-foreground;
+}
+
+@keyframes phone-shake {
+  0% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  10% {
+    transform: rotate(-10deg) translate(-1px, -1px);
+  }
+  20% {
+    transform: rotate(10deg) translate(1px, 1px);
+  }
+  30% {
+    transform: rotate(-10deg) translate(-1px, 1px);
+  }
+  40% {
+    transform: rotate(10deg) translate(1px, -1px);
+  }
+  50% {
+    transform: rotate(-10deg) translate(-1px, -1px);
+  }
+  60% {
+    transform: rotate(10deg) translate(1px, 1px);
+  }
+  70% {
+    transform: rotate(-10deg) translate(-1px, 1px);
+  }
+  80% {
+    transform: rotate(10deg) translate(1px, -1px);
+  }
+  90% {
+    transform: rotate(-10deg) translate(-1px, -1px);
+  }
+  100% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+}
+
+@utility animate-phone-shake {
+  animation: phone-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@utility animate-ripple {
+  animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

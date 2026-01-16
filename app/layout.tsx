@@ -13,10 +13,10 @@ const _geist = Geist({ subsets: ['latin'] });
 const _geistMono = Geist_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'WINDY PHOTOGRAPHY',
+  title: 'Q&A Photo',
   description:
     'Premium outdoor, wedding, and photobooth photography services with modern design and exceptional quality.',
-  generator: 'v0.app',
+  generator: 'Q&A Photo',
   icons: {
     icon: [
       {
@@ -45,7 +45,7 @@ export default function RootLayout({
     <html lang='en' className='scroll-smooth'>
       <body className={`font-sans antialiased`}>
         <LanguageProvider>
-          <main className='bg-background text-foreground'>
+          <main className='bg-white text-foreground'>
             <Navigation />
             {children}
             <Footer />

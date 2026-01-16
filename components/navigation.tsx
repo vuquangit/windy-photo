@@ -1,6 +1,7 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage, translations } from '@/context/language-context';
 import { useState, useEffect } from 'react';
@@ -34,18 +35,25 @@ export default function Navigation() {
 
   return (
     <nav
-      className='fixed top-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-b border-border transition-all duration-300'
+      className='fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300'
       style={{ height: `${headerHeight}px` }}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full'>
         <div className='flex justify-between items-center h-full'>
-          <div className='flex-shrink-0'>
+          <div className='shrink-0'>
             <Link
               href='/'
-              className='text-2xl font-serif font-light tracking-wide'
+              className='text-2xl font-serif font-light tracking-wide flex items-center gap-2'
             >
-              <span className='font-normal'>WINDY</span>
-              <span className='italic font-light ml-1'>Photo</span>
+              <Image
+                src='/icon.svg'
+                alt='Logo'
+                width={40}
+                height={40}
+                className='relative z-10'
+              />
+              {/* <span className='font-normal'>Q&A</span> */}
+              {/* <span className='italic font-light ml-1'>Photo</span> */}
             </Link>
           </div>
 
