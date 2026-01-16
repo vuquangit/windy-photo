@@ -53,10 +53,10 @@ export const translations = {
     // Services Section
     ourServices: "Dịch Vụ Của Chúng Tôi",
     ourServicesDesc: "Ghi lại những khoảnh khắc quý giá nhất trong cuộc sống với sự tinh tế và chân thực",
-    portraitPhotography: "Chụp Ảnh Chân Dung Ngoài Trời",
+    portraitPhotography: "Chân Dung",
     portraitPhotographyDesc:
       "Những buổi chụp ảnh chân dung ngoài trời tuyệt đẹp thể hiện vẻ đẹp tự nhiên và cá tính của bạn",
-    weddingPhotography: "Chụp Ảnh Cưới Ngoại Cảnh",
+    weddingPhotography: "Ảnh Cưới Ngoại Cảnh",
     weddingPhotographyDesc: "Lưu giữ ngày trọng đại của bạn với những bức ảnh cưới ngoài trời tuyệt đẹp",
     photobooth: "Photobooth",
     photoboothDesc: "Trải nghiệm photobooth tương tác cho tiệc cưới của bạn với in ấn tức thì và bản sao kỹ thuật số",
