@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 import { LanguageProvider } from '@/context/language-context';
-import Navigation from '@/components/navigation';
+import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ContactPopup from '@/components/contact-popup';
 
@@ -46,7 +46,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <LanguageProvider>
           <main className='bg-white text-foreground'>
-            <Navigation />
+            <Header />
             {children}
             <Footer />
             <ContactPopup />

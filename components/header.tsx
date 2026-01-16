@@ -17,7 +17,7 @@ const NavigationItem = ({ href, label }: { href: string; label: string }) => {
   );
 };
 
-export default function Navigation() {
+export default function Header() {
   const { language, setLanguage } = useLanguage();
   const [headerHeight, setHeaderHeight] = useState(80);
 
@@ -44,17 +44,29 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav
       className='fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 shadow'
       style={{ height: `${headerHeight}px` }}
     >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative'>
         <div className='flex justify-between items-center h-full'>
           <div className='shrink-0'>
             <Link
               href='/'
               className='text-2xl font-serif font-light tracking-wide flex items-center gap-2'
+              onClick={() => setIsMenuOpen(false)}
             >
               <Image
                 src='/icon.svg'
@@ -106,8 +118,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className='md:hidden flex items-center gap-4'>
+          {/* Mobile Menu Button - Elevated Z-index to stay above overlay */}
+          <div className='md:hidden flex items-center gap-4 relative z-70'>
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value as 'en' | 'vi')}
@@ -129,41 +141,47 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className='md:hidden pb-6 space-y-4 border-t border-border pt-4'>
+        {/* Mobile Menu Fullscreen Overlay */}
+        <div
+          className={`md:hidden fixed inset-0 z-60 bg-white transition-all duration-500 ease-in-out ${
+            isMenuOpen
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 -translate-y-full pointer-events-none'
+          }`}
+        >
+          <div className='flex flex-col items-center justify-center space-y-12 h-full'>
             <Link
-              href='#about'
-              className='block text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+              href='/#about'
+              className='text-2xl uppercase tracking-[0.2em] font-light hover:text-muted-foreground transition-colors'
+              onClick={() => setIsMenuOpen(false)}
             >
-              ABOUT
+              {translations[language].about}
             </Link>
             <Link
-              href='#portfolio'
-              className='block text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+              href='/#portfolio'
+              className='text-2xl uppercase tracking-[0.2em] font-light hover:text-muted-foreground transition-colors'
+              onClick={() => setIsMenuOpen(false)}
             >
-              PORTFOLIO
+              {translations[language].portfolio}
             </Link>
             <Link
-              href='#info'
-              className='block text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+              href='/#services'
+              className='text-2xl uppercase tracking-[0.2em] font-light hover:text-muted-foreground transition-colors'
+              onClick={() => setIsMenuOpen(false)}
             >
-              INFO
+              {translations[language].services}
             </Link>
             <Link
-              href='#contact'
-              className='block text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
+              href='/#pricing'
+              className='text-2xl uppercase tracking-[0.2em] font-light hover:text-muted-foreground transition-colors'
+              onClick={() => setIsMenuOpen(false)}
             >
-              CONTACT
+              {translations[language].pricing}
             </Link>
-            <Link
-              href='#stories'
-              className='block text-sm uppercase tracking-widest hover:text-muted-foreground transition-colors'
-            >
-              STORIES
-            </Link>
+
+            {/* Stories or other links can be added here if needed */}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
